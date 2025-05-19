@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="En">
+    <head>
+        <title>Phonebook</title>
+    </head>
+    <body>
+        <h1>My phone-book</h1>
+        {% if users %}
+        <ul>
+            {% for user in users %}
+            <li>
+                {{user['name']}}|
+                {{user['phone']}}|
+                {{user['email']}}
+                <form method="POST" action="/delete/{{user['id']}}" style="display:inline;">
+                    <button type="submit">DELETE</button>
+                </form>
+                <a href="/edit/{{user['id']}}">EDIT</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Your phonebook is empty</p>
+        {% endif %}
+        
+<hr>
+        <h2>Add a contact</h2>
+        <form method="POST" action="/add">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="phone" placeholder="phone number" required>
+            <input type="text" name="email" placeholder="email" required>
+            <button type="submit">ADD</button>
+        </form>
+        <hr>
+        <h2>Clear contact book</h2>
+        <form method="POST" action="/clear">
+            <button type="submit">CLEAR</button>
+        </form>
+    </body>
+    
+</html>

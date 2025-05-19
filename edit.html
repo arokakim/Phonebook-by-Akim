@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit contact</title>
+    </head>
+    <body>
+        <h1>Edit contact</h1>
+        <form method="POST" action="/update/{{user['id']}}">
+            <input type="text" name="name" value="{{user['name']}}" required>
+            <input type="text" name="phone" value="{{user['phone']}}" required>
+            <input type="text" name="email" value="{{user['email']}}" required>
+            <button type="submit">UPDATE</button>
+        </form>
+        <br>
+        <a href="/">Back to PHONEBOOK</a>
+    </body>
+</html>
